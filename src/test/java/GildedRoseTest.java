@@ -115,9 +115,9 @@ public class GildedRoseTest {
 	@Test
 	public void backStagePassesQualityIncreaseByThree_whenSellByDateIsLessThanOrEqualToFive() {
 		
-		GildedRose inventoryApp = new GildedRose(Arrays.asList(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 22)));
+		GildedRose inventoryApp = new GildedRose(Arrays.asList(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 47)));
 		inventoryApp.updateQuality();
-		assertEquals(25, inventoryApp.getItems().get(0).getQuality());	
+		assertEquals(50, inventoryApp.getItems().get(0).getQuality());	
 	}
 	
 	@Test
@@ -131,8 +131,8 @@ public class GildedRoseTest {
 	@Test
 	public void conjuredItemQualityDecreasesTwiceThanNormal() {
 		
-		GildedRose inventoryApp = new GildedRose(Arrays.asList(new Item("Conjured Item", 6, 22)));
+		GildedRose inventoryApp = new GildedRose(Arrays.asList(new Item("Conjured Item", 6, 3)));
 		inventoryApp.updateQuality();
-		assertEquals(20, inventoryApp.getItems().get(0).getQuality());
+		assertEquals(1, inventoryApp.getItems().get(0).getQuality());
 	}
 }
