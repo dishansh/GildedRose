@@ -1,3 +1,4 @@
+package com.inn.model;
 
 public class Item {
     public String name;
