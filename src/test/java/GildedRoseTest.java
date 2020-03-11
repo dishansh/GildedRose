@@ -163,4 +163,11 @@ public class GildedRoseTest {
 		inventoryApp.update();
 		assertEquals(0, inventoryApp.getItems().get(0).getQuality());	
 	}
+	
+	@Test
+	public void itemWithNameAsNullShouldNotBeCreated() {
+		GildedRose inventoryApp = new GildedRose(Arrays.asList(new Item(null,0,0)));
+		inventoryApp.update();
+		assertEquals(0, inventoryApp.getItems().size());	
+	}
 }
