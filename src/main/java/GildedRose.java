@@ -1,5 +1,7 @@
 import java.util.List;
 
+import com.inn.model.Item;
+
 public class GildedRose {
 
 	private static List<Item> items = null;
@@ -13,7 +15,7 @@ public class GildedRose {
 	public List<Item> getItems() {
 		return items;
 	}
-
+	
 	public static boolean withinMaximumQualityLimit(int quantity) {
 		return quantity < MAX_ALLOWED_QUALITY;
 	}
@@ -34,17 +36,24 @@ public class GildedRose {
 		item.setQuality(item.getQuality() - 1);
 	}
 
-	public static void decrementQualityTwice(Item item) {
-
-		if (item.getQuality() - 2 >= 0) {
-			item.setQuality(item.getQuality() - 2);
+	public static void decrementQualityForConjuredItem(Item item) {
+		if (item.getSellIn() < 0) {
+			if (item.getQuality() - 4 >= 0) {
+				item.setQuality(item.getQuality() - 4);
+			} else {
+					item.setQuality(0);
+			}
 		} else {
-			decrementQuality(item);
+			if (item.getQuality() - 2 >= 0) {
+				item.setQuality(item.getQuality() - 2);
+			} else {
+				decrementQuality(item);
+			}
 		}
 
 	}
 
-	public static void updateQuality() {
+	public static void update() {
 		for (Item item : items) {
 
 			// Decreasing SellIn Day for each item by-default
@@ -58,7 +67,7 @@ public class GildedRose {
 						decrementQuality(item);
 					}
 					if ("Conjured Item".equals(item.getName())) {
-						decrementQualityTwice(item);
+						decrementQualityForConjuredItem(item);
 					}
 
 				}
@@ -86,7 +95,7 @@ public class GildedRose {
 				if (!"Aged Brie".equals(item.getName())) {
 					if (!"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
 						if (item.getQuality() > 0) {
-							if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+							if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()) && !"Conjured Item".equals(item.getName())) {
 								decrementQuality(item);
 							}
 						}
