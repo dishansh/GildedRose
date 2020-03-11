@@ -33,7 +33,7 @@ public class ConjuredItem implements InventoryItem {
 		item.setSellIn(item.getSellIn()-1);
 	}
 
-	private void decrementQuality(Item item, int dayNumber) {
-		item.setQuality(item.getQuality() - dayNumber);
+	private void decrementQuality(Item item, int decrementValue) {
+		item.setQuality(item.getQuality() - decrementValue);
 	}
 }

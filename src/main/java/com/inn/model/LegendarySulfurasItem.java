@@ -6,7 +6,7 @@ public class LegendarySulfurasItem implements InventoryItem {
 
 	@Override
 	public void updateItem(Item item) {
-		// TODO Auto-generated method stub
+		// Empty since its a Legendary Item and none of the property is altered
 	}
 
 }

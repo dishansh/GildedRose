@@ -23,12 +23,12 @@ public class BackstagePassesItem implements InventoryItem {
         item.setSellIn(item.getSellIn()-1);
     }
 
-    private boolean isSellByDayOver(Item item, int dayNumber) {
-        return item.getSellIn() > dayNumber;
+    private boolean isSellByDayOver(Item item, int noOfDays) {
+        return item.getSellIn() > noOfDays;
     }
 
-    private void increaseQualityBy(Item item, int qualityValue) {
-        item.setQuality(item.getQuality()+qualityValue);
+    private void increaseQualityBy(Item item, int incrementValue) {
+        item.setQuality(item.getQuality()+incrementValue);
     }
 
     private void dropQualityToZero(Item item) {
